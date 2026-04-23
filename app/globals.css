@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy:      #0f2137;
+  --color-navy-mid:  #1a2d31;
+  --color-blue:      #4284b2;
+  --color-blue-dim:  #67a0bb;
+  --color-steel:     #67a0bb;
+  --color-grey:      #eaeaec;
+  --color-offwhite:  #f4f6f7;
+  --color-ink:       #0a0a0a;
+  --color-ink-mid:   #1a1a1a;
+  --color-muted:     #6b6b6b;
+  --color-border:    #eaeaec;
+
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+  --font-mono:    'DM Mono', monospace;
+}
+
+/* ── Base ── */
+html {
+  scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background: #ffffff;
+  color: #0a0a0a;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── Typography helpers ── */
+.font-display { font-family: var(--font-display); }
+.font-mono    { font-family: var(--font-mono); }
+
+/* ── Keyframes ── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes line-grow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes brand-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scroll-dot {
+  0%  { transform: translateY(0);    opacity: 1; }
+  80% { transform: translateY(10px); opacity: 0; }
+  100%{ transform: translateY(0);    opacity: 0; }
+}
+
+/* ── Animation utilities ── */
+.animate-fade-up      { animation: fade-up 0.7s cubic-bezier(0.16,1,0.3,1) both; }
+.animate-fade-in      { animation: fade-in 0.6s ease both; }
+.animate-brand-scroll { animation: brand-scroll 28s linear infinite; }
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+
+/* ── Grid backgrounds ── */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.bg-grid-light {
+  background-image:
+    linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ── Brand ticker ── */
+.brand-ticker-wrap {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+}
+
+/* ── Stat card hover line ── */
+.stat-line {
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.stat-wrap:hover .stat-line {
+  transform: scaleX(1);
+}
+
+/* ── Pillar / product cards ── */
+.pillar-card {
+  border: 1px solid #e2e2de;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+.pillar-card:hover {
+  border-color: #4284b2;
+  box-shadow: 0 0 0 1px rgba(66,132,178,0.12), 0 12px 40px rgba(66,132,178,0.08);
+  transform: translateY(-3px);
+}
+
+/* ── Scroll reveal (IntersectionObserver) ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Accent line ── */
+.hr-accent {
+  height: 1px;
+  background: linear-gradient(90deg, #4284b2, transparent);
+}
