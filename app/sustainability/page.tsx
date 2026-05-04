@@ -82,7 +82,7 @@ const OPS_ICONS: Record<string, React.ReactElement> = {
   ),
 }
 
-const PEOPLE_ICONS: Record<string, JSX.Element> = {
+const PEOPLE_ICONS: Record<string, React.ReactElement> = {
   medical: (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
       <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
