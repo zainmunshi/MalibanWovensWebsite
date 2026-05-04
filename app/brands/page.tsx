@@ -249,62 +249,145 @@ export default function BrandsPage() {
         </div>
       </section>
 
-      {/* ── ANCHOR BUYERS — DARK FEATURE ─────────────────────── */}
-      <section style={{ background: '#0a0a0a', padding: '96px 48px' }}>
-        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+      {/* ── ANCHOR BUYERS + EDITORIAL SHOWCASE ── */}
+      <section style={{ background: '#0a0a0a', padding: '96px 0 0' }}>
 
+        {/* Section header */}
+        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 48px' }}>
           <div className="reveal" style={{
             display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end',
-            borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: 28, marginBottom: 64,
+            borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: 28, marginBottom: 72,
           }}>
             <h2 style={{
               fontFamily: "'Playfair Display', serif",
               fontSize: 'clamp(32px, 5vw, 64px)', fontWeight: 900, fontStyle: 'italic',
               color: '#fff', letterSpacing: '-0.03em', margin: 0, lineHeight: 1,
-            }}>Anchor<br />Partners</h2>
+            }}>The Collection</h2>
             <div style={{
               fontFamily: "'DM Mono', monospace",
               fontSize: 11, letterSpacing: '0.15em', textTransform: 'uppercase',
               color: 'rgba(255,255,255,0.3)',
-            }}>80.4% of annual volume</div>
+            }}>9 images · 5 brands</div>
           </div>
+        </div>
 
+        {/*
+          All images ~2:3 portrait. Strategy: uniform columns per row,
+          aspect-ratio drives height — no fixed px heights, no mixed fr sizes.
+
+          Row A: 5 equal cols  — gap-1 | tommy-1 | ck-1 | ms-1 | gant-1
+          Row B: 4 equal cols  — gap-2 | tommy-2 | gant-2 | gap-3
+        */}
+        <div style={{ padding: '0 48px' }}>
+          <div style={{ maxWidth: 1280, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 3 }}>
+
+            {/* ── ROW A — 5 equal columns ── */}
+            <div className="reveal" style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 3 }}>
+              {[
+                { src: '/images/brands/gap-1.png',   alt: 'Gap',            label: 'Gap Inc',          caption: 'Woven bottoms,\neveryday wear' },
+                { src: '/images/brands/tommy-1.png', alt: 'Tommy Hilfiger', label: 'Tommy Hilfiger',   caption: 'Premium casual,\nAmerican heritage' },
+                { src: '/images/brands/ck-1.png',    alt: 'Calvin Klein',   label: 'Calvin Klein',     caption: 'Contemporary\nminimalism' },
+                { src: '/images/brands/ms-1.png',    alt: 'M&S',            label: 'Marks & Spencer',  caption: 'British high-street,\nbuilt to last' },
+                { src: '/images/brands/gant-1.png',  alt: 'Gant',           label: 'Gant',             caption: 'Preppy lifestyle,\nEuropean edge' },
+              ].map((img, i) => (
+                <div key={i} style={{ position: 'relative', aspectRatio: '2/3', overflow: 'hidden' }}>
+                  <img src={img.src} alt={img.alt} style={{
+                    position: 'absolute', inset: 0, width: '100%', height: '100%',
+                    objectFit: 'cover', objectPosition: 'top', display: 'block',
+                  }} />
+                  <div style={{
+                    position: 'absolute', bottom: 0, left: 0, right: 0,
+                    padding: '40px 14px 14px',
+                    background: 'linear-gradient(transparent, rgba(0,0,0,0.82))',
+                    pointerEvents: 'none',
+                  }}>
+                    <div style={{
+                      fontFamily: "'DM Mono', monospace", fontSize: 9,
+                      letterSpacing: '0.18em', textTransform: 'uppercase',
+                      color: 'rgba(255,255,255,0.5)', marginBottom: 5,
+                    }}>{img.label}</div>
+                    <div style={{
+                      fontFamily: "'Playfair Display', serif",
+                      fontSize: 'clamp(12px, 1.1vw, 15px)', fontWeight: 700,
+                      fontStyle: 'italic', color: '#fff', lineHeight: 1.25,
+                      whiteSpace: 'pre-line',
+                    }}>{img.caption}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* ── ROW B — 4 equal columns ── */}
+            <div className="reveal" style={{
+              display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 3,
+              transitionDelay: '100ms',
+            }}>
+              {[
+                { src: '/images/brands/gap-2.png',   alt: 'Gap style 2',           label: 'Gap Inc'         },
+                { src: '/images/brands/tommy-2.png', alt: 'Tommy Hilfiger style 2', label: 'Tommy Hilfiger'  },
+                { src: '/images/brands/gant-2.png',  alt: 'Gant style 2',          label: 'Gant'            },
+                { src: '/images/brands/gap-3.png',   alt: 'Gap style 3',           label: 'Gap Inc'         },
+              ].map((img, i) => (
+                <div key={i} style={{ position: 'relative', aspectRatio: '2/3', overflow: 'hidden' }}>
+                  <img src={img.src} alt={img.alt} style={{
+                    position: 'absolute', inset: 0, width: '100%', height: '100%',
+                    objectFit: 'cover', objectPosition: 'top', display: 'block',
+                  }} />
+                  <div style={{
+                    position: 'absolute', bottom: 14, left: 14,
+                    fontFamily: "'DM Mono', monospace", fontSize: 9,
+                    letterSpacing: '0.18em', textTransform: 'uppercase',
+                    color: 'rgba(255,255,255,0.45)',
+                  }}>{img.label}</div>
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </div>
+
+        {/* Buyer stats row */}
+        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '72px 48px 96px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2 }}>
             {BUYER_SHARE.filter(b => b.tier === 'anchor').map((b, i) => (
-              <div key={b.name} className="reveal" style={{ transitionDelay: `${i * 100}ms` }}>
-                <div className="mag-img" style={{ height: 280 }}>[ product image ]</div>
-                <div style={{ padding: '28px 0 40px', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
-                  <div style={{
-                    fontFamily: "'DM Mono', monospace",
-                    fontSize: 10, letterSpacing: '0.2em', textTransform: 'uppercase',
-                    color: 'rgba(255,255,255,0.25)', marginBottom: 12,
-                  }}>{b.region}</div>
-                  <div style={{
-                    fontFamily: "'Playfair Display', serif",
-                    fontSize: 'clamp(18px, 2.2vw, 26px)', fontWeight: 700,
-                    color: '#fff', letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 6,
-                  }}>{b.brands}</div>
-                  <div style={{
-                    fontFamily: "'DM Sans', sans-serif",
-                    fontSize: 13, color: 'rgba(255,255,255,0.35)', fontWeight: 300, marginBottom: 24,
-                  }}>via {b.name}</div>
-                  <AnimatedBar share={b.share} tier={b.tier} delay={i * 100 + 400} />
-                  <div style={{
-                    fontFamily: "'Playfair Display', serif",
-                    fontSize: 'clamp(28px, 3.5vw, 40px)', fontWeight: 900,
-                    color: '#fff', letterSpacing: '-0.03em', marginTop: 14, lineHeight: 1,
-                  }}>{b.share}%</div>
-                  <div style={{
-                    fontFamily: "'DM Mono', monospace",
-                    fontSize: 10, letterSpacing: '0.15em', textTransform: 'uppercase',
-                    color: 'rgba(255,255,255,0.25)', marginTop: 4,
-                  }}>of annual volume</div>
-                </div>
+              <div key={b.name} className="reveal" style={{
+                transitionDelay: `${i * 100}ms`,
+                padding: '32px 0', borderTop: '1px solid rgba(255,255,255,0.1)',
+              }}>
+                <div style={{
+                  fontFamily: "'DM Mono', monospace",
+                  fontSize: 10, letterSpacing: '0.2em', textTransform: 'uppercase',
+                  color: 'rgba(255,255,255,0.25)', marginBottom: 12,
+                }}>{b.region}</div>
+                <div style={{
+                  fontFamily: "'Playfair Display', serif",
+                  fontSize: 'clamp(17px, 2vw, 24px)', fontWeight: 700,
+                  color: '#fff', letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 4,
+                }}>{b.brands}</div>
+                <div style={{
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontSize: 13, color: 'rgba(255,255,255,0.3)', fontWeight: 300, marginBottom: 24,
+                }}>via {b.name}</div>
+                <AnimatedBar share={b.share} tier={b.tier} delay={i * 100 + 400} />
+                <div style={{
+                  fontFamily: "'Playfair Display', serif",
+                  fontSize: 'clamp(28px, 3.5vw, 40px)', fontWeight: 900,
+                  color: '#fff', letterSpacing: '-0.03em', marginTop: 14, lineHeight: 1,
+                }}>{b.share}%</div>
+                <div style={{
+                  fontFamily: "'DM Mono', monospace",
+                  fontSize: 10, letterSpacing: '0.15em', textTransform: 'uppercase',
+                  color: 'rgba(255,255,255,0.25)', marginTop: 4,
+                }}>of annual volume</div>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+
+
+
 
       {/* ── FULL BRAND DIRECTORY ─────────────────────────────── */}
       <section style={{ background: '#faf9f7', padding: '96px 48px' }}>

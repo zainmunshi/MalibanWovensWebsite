@@ -9,7 +9,7 @@ import BrandTicker from '@/components/ui/BrandTicker'
 import PillarCards from '@/components/ui/PillarCards'
 import ProductHover from '@/components/ui/ProductHover'
 import CertTicker from '@/components/ui/CertTicker'
-import ContactForm from '@/components/ui/ContactForm'
+import CtaButton from '@/components/ui/CtaButton'
 
 export const metadata: Metadata = {
   title: pageMeta.home.title,
@@ -60,14 +60,12 @@ export default function HomePage() {
     <>
       {/* ═══════════════════════════════════════════
           HERO
-          H1 server-rendered so Google indexes it.
-          Video stays client-only in HeroVideo.
       ═══════════════════════════════════════════ */}
       <div style={{ position: 'relative' }}>
         <HeroVideo />
 
         {/* Server-rendered H1 overlaid on video */}
-<div style={{
+        <div style={{
           position: 'absolute',
           bottom: 0, left: 0, right: 0,
           zIndex: 3,
@@ -93,11 +91,8 @@ export default function HomePage() {
             Woven Garment Excellence.<br />Since 1974.
           </h1>
         </div>
-
-        
       </div>
 
-      
       {/* ═══════════════════════════════════════════
           STATS
       ═══════════════════════════════════════════ */}
@@ -117,13 +112,10 @@ export default function HomePage() {
                 borderBottom: i < 3 ? '1px solid rgba(255,255,255,0.06)' : 'none',
                 position: 'relative',
               }}>
-                {/* Hover accent line */}
                 <div className="stat-line" style={{
                   position: 'absolute', top: 0, left: 48, right: 48,
                   height: 1, background: '#4284b2',
                 }} />
-
-                {/* Number */}
                 <div style={{
                   fontFamily: 'var(--font-display)',
                   fontWeight: 300,
@@ -135,26 +127,17 @@ export default function HomePage() {
                 }}>
                   {s.value}
                 </div>
-
-                {/* Label */}
                 <div style={{
-                  fontSize: 13,
-                  fontWeight: 500,
-                  color: '#4284b2',
-                  marginBottom: 6,
-                  letterSpacing: '0.01em',
+                  fontSize: 13, fontWeight: 500,
+                  color: '#4284b2', marginBottom: 6, letterSpacing: '0.01em',
                 }}>
                   {s.label}
                 </div>
-
-                {/* Sub */}
                 <div style={{
-                  fontSize: 11,
-                  fontWeight: 400,
+                  fontSize: 11, fontWeight: 400,
                   color: 'rgba(255,255,255,0.22)',
                   fontFamily: 'var(--font-mono)',
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase',
+                  letterSpacing: '0.08em', textTransform: 'uppercase',
                 }}>
                   {s.sub}
                 </div>
@@ -165,20 +148,16 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          SEO INTRO — crawlable prose with
-          primary + secondary keywords
+          SEO INTRO
       ═══════════════════════════════════════════ */}
       <section style={{ background: '#0f2137', padding: '0 24px 72px' }}>
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
           <p style={{
-            fontSize: 15,
-            lineHeight: 1.85,
+            fontSize: 15, lineHeight: 1.85,
             color: 'rgba(255,255,255,0.35)',
-            maxWidth: 680,
-            fontFamily: 'var(--font-body)',
+            maxWidth: 680, fontFamily: 'var(--font-body)',
             borderLeft: '2px solid #4284b2',
-            paddingLeft: 24,
-            margin: 0,
+            paddingLeft: 24, margin: 0,
           }}>
             Maliban Wovens is a leading woven garment manufacturer in Sri Lanka,
             producing over 10.8 million pieces annually across seven integrated
@@ -196,9 +175,6 @@ export default function HomePage() {
       ═══════════════════════════════════════════ */}
       <BrandTicker />
 
-      {/* ═══════════════════════════════════════════
-          PILLARS — asymmetric editorial layout
-      ═══════════════════════════════════════════ */}
       {/* ═══════════════════════════════════════════
           PILLARS
       ═══════════════════════════════════════════ */}
@@ -226,19 +202,15 @@ export default function HomePage() {
           }} className="pillars-grid">
             <PillarCards />
           </div>
-
         </div>
       </section>
+
       {/* ═══════════════════════════════════════════
-          PRODUCTS — editorial light layout
-      ═══════════════════════════════════════════ */}
-     {/* ═══════════════════════════════════════════
-          PRODUCTS — editorial light layout
+          PRODUCTS
       ═══════════════════════════════════════════ */}
       <section style={{ background: '#ffffff', padding: '100px 24px' }}>
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
 
-          {/* Header */}
           <ScrollReveal>
             <div style={{
               display: 'flex', alignItems: 'flex-end',
@@ -273,35 +245,25 @@ export default function HomePage() {
             </div>
           </ScrollReveal>
 
-          {/* Product rows */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
 
-            {/* Row 1 — Woven Bottoms — light, image left */}
+            {/* Row 1 — Woven Bottoms */}
             <ScrollReveal>
               <div style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
-                background: '#f7f7f5',
-                overflow: 'hidden',
+                display: 'grid', gridTemplateColumns: '1fr 1fr',
+                background: '#f7f7f5', overflow: 'hidden',
               }} className="products-grid">
-
-                {/* Image */}
                 <ProductHover>
                   <div style={{
                     position: 'absolute', inset: 0,
                     backgroundImage: 'url(/images/product-woven.jpg)',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
+                    backgroundSize: 'cover', backgroundPosition: 'center',
                     transition: 'transform 0.7s cubic-bezier(0.16,1,0.3,1)',
                   }} className="prod-img" />
                 </ProductHover>
-
-                {/* Content */}
                 <div style={{
                   padding: '64px 56px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
+                  display: 'flex', flexDirection: 'column', justifyContent: 'center',
                 }}>
                   <div style={{
                     fontFamily: 'var(--font-mono)', fontSize: 9,
@@ -310,7 +272,6 @@ export default function HomePage() {
                   }}>
                     Category 01
                   </div>
-
                   <h3 style={{
                     fontFamily: 'var(--font-display)', fontWeight: 700,
                     fontSize: 'clamp(22px, 2.5vw, 34px)',
@@ -319,45 +280,35 @@ export default function HomePage() {
                   }}>
                     Woven Bottoms<br />&amp; Casuals
                   </h3>
-
                   <p style={{
-                    fontSize: 14, lineHeight: 1.8,
-                    color: '#6b6b6b', fontWeight: 400,
-                    marginBottom: 32, maxWidth: 380,
+                    fontSize: 14, lineHeight: 1.8, color: '#6b6b6b',
+                    fontWeight: 400, marginBottom: 32, maxWidth: 380,
                   }}>
                     Cargo pants, formal trousers, chinos, shorts, skirts and
                     casual wear — produced across our manufacturing hubs in
                     Dehiattakandiya, Ingiriya and Balangoda.
                   </p>
-
-                  {/* Capacity */}
                   <div style={{
                     display: 'inline-flex', alignItems: 'baseline',
-                    gap: 8, marginBottom: 36,
-                    paddingBottom: 32,
+                    gap: 8, marginBottom: 36, paddingBottom: 32,
                     borderBottom: '1px solid #e2e2de',
                   }}>
                     <span style={{
                       fontFamily: 'var(--font-display)', fontWeight: 700,
-                      fontSize: 36, letterSpacing: '-0.04em', color: '#0a0a0a',
-                      lineHeight: 1,
+                      fontSize: 36, letterSpacing: '-0.04em', color: '#0a0a0a', lineHeight: 1,
                     }}>6M</span>
                     <span style={{
                       fontFamily: 'var(--font-mono)', fontSize: 10,
-                      color: '#4284b2', letterSpacing: '0.06em',
-                      textTransform: 'uppercase',
+                      color: '#4284b2', letterSpacing: '0.06em', textTransform: 'uppercase',
                     }}>units / year</span>
                   </div>
-
-                  {/* Tags */}
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                     {['Cargo Pants', 'Formal Trousers', 'Chinos', 'Shorts', 'Skirts', 'Casual Wear'].map(item => (
                       <span key={item} style={{
                         fontFamily: 'var(--font-mono)', fontSize: 9,
                         letterSpacing: '0.06em', color: '#6b6b6b',
                         border: '1px solid #e2e2de',
-                        padding: '5px 10px', borderRadius: 4,
-                        textTransform: 'uppercase',
+                        padding: '5px 10px', borderRadius: 4, textTransform: 'uppercase',
                       }}>{item}</span>
                     ))}
                   </div>
@@ -365,21 +316,15 @@ export default function HomePage() {
               </div>
             </ScrollReveal>
 
-            {/* Row 2 — Tailored — dark, image right */}
+            {/* Row 2 — Tailored */}
             <ScrollReveal>
               <div style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
-                background: '#0f2137',
-                overflow: 'hidden',
+                display: 'grid', gridTemplateColumns: '1fr 1fr',
+                background: '#0f2137', overflow: 'hidden',
               }} className="products-grid">
-
-                {/* Content */}
                 <div style={{
                   padding: '64px 56px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
+                  display: 'flex', flexDirection: 'column', justifyContent: 'center',
                 }}>
                   <div style={{
                     fontFamily: 'var(--font-mono)', fontSize: 9,
@@ -388,7 +333,6 @@ export default function HomePage() {
                   }}>
                     Category 02
                   </div>
-
                   <h3 style={{
                     fontFamily: 'var(--font-display)', fontWeight: 700,
                     fontSize: 'clamp(22px, 2.5vw, 34px)',
@@ -397,7 +341,6 @@ export default function HomePage() {
                   }}>
                     Tailored &amp;<br />Constructed Garments
                   </h3>
-
                   <p style={{
                     fontSize: 14, lineHeight: 1.8,
                     color: 'rgba(255,255,255,0.5)', fontWeight: 400,
@@ -407,45 +350,35 @@ export default function HomePage() {
                     equipped with automated pattern sewing systems,
                     precision pressing, and integrated finishing technology.
                   </p>
-
-                  {/* Capacity */}
                   <div style={{
                     display: 'inline-flex', alignItems: 'baseline',
-                    gap: 8, marginBottom: 36,
-                    paddingBottom: 32,
+                    gap: 8, marginBottom: 36, paddingBottom: 32,
                     borderBottom: '1px solid rgba(255,255,255,0.1)',
                   }}>
                     <span style={{
                       fontFamily: 'var(--font-display)', fontWeight: 700,
-                      fontSize: 36, letterSpacing: '-0.04em', color: '#ffffff',
-                      lineHeight: 1,
+                      fontSize: 36, letterSpacing: '-0.04em', color: '#ffffff', lineHeight: 1,
                     }}>4.8M</span>
                     <span style={{
                       fontFamily: 'var(--font-mono)', fontSize: 10,
-                      color: '#4284b2', letterSpacing: '0.06em',
-                      textTransform: 'uppercase',
+                      color: '#4284b2', letterSpacing: '0.06em', textTransform: 'uppercase',
                     }}>units / year</span>
                   </div>
-
-                  {/* Tags */}
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 40 }}>
                     {['Blazers', 'Suiting', 'Sport Jackets', 'Formal Suits'].map(item => (
                       <span key={item} style={{
                         fontFamily: 'var(--font-mono)', fontSize: 9,
                         letterSpacing: '0.06em', color: 'rgba(255,255,255,0.4)',
                         border: '1px solid rgba(255,255,255,0.12)',
-                        padding: '5px 10px', borderRadius: 4,
-                        textTransform: 'uppercase',
+                        padding: '5px 10px', borderRadius: 4, textTransform: 'uppercase',
                       }}>{item}</span>
                     ))}
                   </div>
-
                   <Link href="/capabilities" style={{
                     fontFamily: 'var(--font-mono)', fontSize: 10,
                     letterSpacing: '0.08em', color: '#4284b2',
                     textDecoration: 'none', textTransform: 'uppercase',
-                    display: 'inline-flex', alignItems: 'center', gap: 8,
-                    alignSelf: 'flex-start',
+                    display: 'inline-flex', alignItems: 'center', gap: 8, alignSelf: 'flex-start',
                   }}>
                     View full capabilities
                     <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
@@ -453,14 +386,11 @@ export default function HomePage() {
                     </svg>
                   </Link>
                 </div>
-
-                {/* Image */}
                 <ProductHover>
                   <div style={{
                     position: 'absolute', inset: 0,
                     backgroundImage: 'url(/images/product-tailored.jpg)',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
+                    backgroundSize: 'cover', backgroundPosition: 'center',
                     transition: 'transform 0.7s cubic-bezier(0.16,1,0.3,1)',
                   }} className="prod-img" />
                   <div style={{
@@ -469,18 +399,15 @@ export default function HomePage() {
                     pointerEvents: 'none',
                   }} />
                 </ProductHover>
-
               </div>
             </ScrollReveal>
 
           </div>
         </div>
       </section>
+
       {/* ═══════════════════════════════════════════
           CERTIFICATIONS
-      ═══════════════════════════════════════════ */}
-      {/* ═══════════════════════════════════════════
-          CERTIFICATIONS — light trust ticker
       ═══════════════════════════════════════════ */}
       <section style={{
         background: '#ffffff',
@@ -492,8 +419,7 @@ export default function HomePage() {
           <ScrollReveal>
             <div style={{
               display: 'flex', alignItems: 'flex-end',
-              justifyContent: 'space-between',
-              flexWrap: 'wrap', gap: 24,
+              justifyContent: 'space-between', flexWrap: 'wrap', gap: 24,
             }}>
               <div>
                 <div style={{
@@ -524,116 +450,54 @@ export default function HomePage() {
           </ScrollReveal>
         </div>
 
-        {/* Ticker row 1 — scrolls left */}
         <CertTicker direction="left" />
-
-        <div style={{ height: 2, background: '#f7f7f5', margin: '0' }} />
-
-        {/* Ticker row 2 — scrolls right */}
+        <div style={{ height: 2, background: '#f7f7f5' }} />
         <CertTicker direction="right" />
       </section>
 
       {/* ═══════════════════════════════════════════
-          CTA
-      ═══════════════════════════════════════════ */}
-      {/* ═══════════════════════════════════════════
-          CTA — split layout with contact form
+          BOTTOM CTA STRIP — replaces the old form
       ═══════════════════════════════════════════ */}
       <section style={{
         background: '#0f2137',
         borderTop: '1px solid rgba(255,255,255,0.06)',
+        padding: '80px 24px',
+        textAlign: 'center',
       }}>
-        <div style={{
-          maxWidth: 1280,
-          margin: '0 auto',
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          minHeight: 600,
-        }} className="cta-grid">
-
-          {/* LEFT — headline + trust points */}
+        <div style={{ maxWidth: 640, margin: '0 auto' }}>
           <div style={{
-            padding: '80px 72px 80px 24px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            borderRight: '1px solid rgba(255,255,255,0.06)',
-          }} className="cta-left">
-            <div style={{
-              fontFamily: 'var(--font-mono)', fontSize: 10,
-              letterSpacing: '0.18em', color: '#4284b2',
-              textTransform: 'uppercase', marginBottom: 24,
-            }}>
-              Work with us
-            </div>
-
-            <h2 style={{
-              fontFamily: 'var(--font-display)', fontWeight: 700,
-              fontSize: 'clamp(28px, 3.5vw, 52px)',
-              letterSpacing: '-0.03em', color: '#ffffff',
-              lineHeight: 1.05, marginBottom: 24,
-            }}>
-              Ready to source woven<br />garments from<br />Sri Lanka?
-            </h2>
-
-            <p style={{
-              fontSize: 15, lineHeight: 1.8,
-              color: 'rgba(255,255,255,0.45)',
-              fontWeight: 400, marginBottom: 48,
-              maxWidth: 400,
-            }}>
-              Whether you need woven trousers, blazers, or full suiting —
-              our merchandising team can discuss capacity, lead times,
-              certifications, and GSP duty-free pricing.
-            </p>
-
-            {/* Trust points */}
-            <div style={{
-              display: 'flex', flexDirection: 'column', gap: 16,
-            }}>
-              {[
-                { val: '10.8M', label: 'pieces produced annually' },
-                { val: '55%',   label: 'US market · 45% EU/UK' },
-                { val: '0%',    label: 'EU import duty via GSP scheme' },
-                { val: '50+',   label: 'years of manufacturing heritage' },
-              ].map(t => (
-                <div key={t.val} style={{
-                  display: 'flex', alignItems: 'center', gap: 16,
-                }}>
-                  <div style={{
-                    fontFamily: 'var(--font-display)', fontWeight: 700,
-                    fontSize: 18, letterSpacing: '-0.03em',
-                    color: '#4284b2', minWidth: 52,
-                  }}>{t.val}</div>
-                  <div style={{
-                    width: 1, height: 16,
-                    background: 'rgba(255,255,255,0.1)',
-                  }} />
-                  <div style={{
-                    fontFamily: 'var(--font-mono)', fontSize: 10,
-                    letterSpacing: '0.06em',
-                    color: 'rgba(255,255,255,0.35)',
-                    textTransform: 'uppercase',
-                  }}>{t.label}</div>
-                </div>
-              ))}
-            </div>
+            fontFamily: 'var(--font-mono)', fontSize: 10,
+            letterSpacing: '0.18em', color: '#4284b2',
+            textTransform: 'uppercase', marginBottom: 20,
+          }}>
+            Work with us
           </div>
-
-          {/* RIGHT — contact form */}
-          <ContactForm />
-
+          <h2 style={{
+            fontFamily: 'var(--font-display)', fontWeight: 700,
+            fontSize: 'clamp(28px, 3.5vw, 48px)',
+            letterSpacing: '-0.03em', color: '#ffffff',
+            lineHeight: 1.08, marginBottom: 20,
+          }}>
+            Ready to source woven garments from Sri Lanka?
+          </h2>
+          <p style={{
+            fontSize: 15, lineHeight: 1.8,
+            color: 'rgba(255,255,255,0.45)',
+            marginBottom: 40, maxWidth: 480, margin: '0 auto 40px',
+          }}>
+            Our merchandising team can discuss capacity, lead times,
+            certifications, and GSP duty-free pricing.
+          </p>
+          <CtaButton />
         </div>
       </section>
 
-     <style>{`
+      <style>{`
         @media (max-width: 900px) {
           .stats-grid    { grid-template-columns: repeat(2,1fr) !important; }
           .pillars-grid  { grid-template-columns: 1fr !important; }
           .products-grid { grid-template-columns: 1fr !important; }
           .certs-grid    { grid-template-columns: repeat(2,1fr) !important; }
-          .cta-grid      { grid-template-columns: 1fr !important; }
-          .cta-left      { padding: 60px 24px 40px !important; border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.06) !important; }
         }
         @media (max-width: 540px) {
           .stats-grid { grid-template-columns: 1fr !important; }
