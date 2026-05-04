@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef,} from 'react'
 import Link from 'next/link'
 
 /* ─── Scroll reveal hook ─────────────────────────────────────────── */
@@ -51,7 +51,7 @@ const MILESTONES = [
   { year: '2050', label: 'Net Zero', detail: 'Full carbon neutrality across the entire value chain.' },
 ]
 
-const OPS_ICONS: Record<string, JSX.Element> = {
+const OPS_ICONS: Record<string, React.ReactElement> = {
   social: (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
       <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
